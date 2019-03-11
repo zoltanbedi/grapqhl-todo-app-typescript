@@ -1,28 +1,31 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import Todos from "./components/Todos";
+import AddTodo from "./components/AddTodo";
+import { ApolloProvider } from "react-apollo";
+import AWSAppSyncClient, { AUTH_TYPE } from "aws-appsync";
+import aws_config from "./aws-exports";
+import { Rehydrated } from "aws-appsync-react";
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
+const client = new AWSAppSyncClient({
+  url: aws_config.aws_appsync_graphqlEndpoint,
+  region: aws_config.aws_appsync_region,
+  auth: {
+    type: AUTH_TYPE.API_KEY,
+    apiKey: aws_config.aws_appsync_apiKey
   }
-}
+});
+
+const App = () => (
+  <ApolloProvider client={client as any}>
+    <Rehydrated>
+      <div className="App">
+        <h2>Todo app with GraphQL</h2>
+        <AddTodo />
+        <Todos />
+      </div>
+    </Rehydrated>
+  </ApolloProvider>
+);
 
 export default App;
