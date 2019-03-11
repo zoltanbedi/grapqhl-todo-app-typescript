@@ -1,0 +1,14 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "todo-graphql-20190311132335-authRole",
+            "UnauthRoleArn": "arn:aws:iam::207867173164:role/todo-graphql-20190311132335-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::207867173164:role/todo-graphql-20190311132335-authRole",
+            "Region": "eu-central-1",
+            "DeploymentBucketName": "todo-graphql-20190311132335-deployment",
+            "UnauthRoleName": "todo-graphql-20190311132335-unauthRole",
+            "StackName": "todo-graphql-20190311132335",
+            "StackId": "arn:aws:cloudformation:eu-central-1:207867173164:stack/todo-graphql-20190311132335/7e7b9710-43f8-11e9-9573-068030d9517a"
+        }
+    }
+}
