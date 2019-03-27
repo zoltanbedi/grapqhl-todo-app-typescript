@@ -1,4 +1,4 @@
-# Todo app with aws appsync and graphql
+# Todo app with aws appsync and graphql.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app)
 
